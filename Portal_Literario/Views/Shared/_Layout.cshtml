@@ -1,0 +1,59 @@
+﻿<!-- HOJA 1 -->
+<!-- INICIO DEL PROGRAMA ( INTERFAZ GRAFICA ) -->
+<!DOCTYPE html>
+<html>
+<!-- CABECERA HEAD ( CABEZA DE LA PAGINA  )-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Portal Literario</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<!-- INICIO DEL CUERPO DE LA PAGINA -->
+<body>
+    <!-- BARRA DE NAVEGACION ( ESTE ES EL MENÚ DE NAVEGACION QUE SIEMPRE PERMANECERÁ EN LA PLANTILLA ADMINISTRADOR ) -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black">
+        <div class="container">
+            <img class="img-fluid rounded mx-auto d-block" style="max-width: 7%; height: auto;" src="~/IMG/Black_Background.png" alt="logo" />
+            @Html.ActionLink("PORTAL LITERARIO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-5">
+                    <!-- BOTONES DE NAVEGACION Tener en cuenta ( TITULO - METODOS - CONTROLADOR )-->
+                    <li class="h5 mt-2">@Html.ActionLink("Inventario", "Inventario", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Préstamos", "Préstamos", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Devoluciones", "Devoluciones", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Reservas", "Reservas", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Recomendaciones", "Recomendaciones", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Usuarios", "Usuarios", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="h5 mt-2">@Html.ActionLink("Salir", "Salir", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr class="hr_mod" />
+    <div class="container body-content">
+        @RenderBody()
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr />
+
+        <!-- PIE DE PAGINA (PARTE BAJA FIJA ) -->
+        <footer>
+            <p>&copy; @DateTime.Now.Year - GRUPO 4 - PROGRAMACION III</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
